@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Invoice Generator</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #2563eb;
+            --text-color: #334155;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --muted-color: #64748b;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #f8fafc;
+                --accent-color: #3b82f6;
+                --text-color: #cbd5e1;
+                --bg-color: #0f172a;
+                --card-bg: #1e293b;
+                --border-color: #334155;
+                --muted-color: #94a3b8;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 16px;
+            }
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .last-updated {
+            display: inline-block;
+            font-size: 0.875rem;
+            color: var(--muted-color);
+            margin-bottom: 32px;
+            padding: 4px 12px;
+            background: var(--bg-color);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 14px;
+        }
+
+        ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .perm-list li {
+            list-style-type: none;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .perm-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .contact-box {
+            background: var(--bg-color);
+            padding: 16px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <div class="last-updated">Last Updated: 15 October 2026</div>
+
+        <h2>1. Introduction</h2>
+        <p>Welcome to <strong>Invoice Generator</strong>. We value your privacy and are committed to protecting the information you create and store while using our application. This Privacy Policy explains what data our application processes, how it is stored, and your rights regarding your information. By using Invoice Generator, you agree to the practices described in this policy.</p>
+
+        <h2>2. Information We Collect</h2>
+        <p>Invoice Generator processes data required to create, manage, and export professional invoices on your device. Depending on how you use the app, the following information may be collected and stored:</p>
+        <ul>
+            <li><strong>Account Details:</strong> User name, email address, and account password (stored securely in hashed form) created during local app registration.</li>
+            <li><strong>Client Information:</strong> Business names, contact person names, email addresses, phone numbers, and physical addresses entered when creating client profiles.</li>
+            <li><strong>Invoice & Item Records:</strong> Invoice numbers, item descriptions, rates, quantities, tax rates, discounts, payment terms, and notes.</li>
+            <li><strong>Digital Signatures:</strong> Signature images created using the signature pad tool to attach to your generated invoices.</li>
+            <li><strong>Barcode / UPC Inputs:</strong> Product barcode numbers scanned using your device camera or entered manually, which are used to query item details via <code>api.upcitemdb.com</code>.</li>
+        </ul>
+
+        <h2>3. How We Use It</h2>
+        <p>We use the information collected solely to provide core invoicing functionality within the application, including:</p>
+        <ul>
+            <li>Creating, editing, calculating, and managing client profiles and invoice records.</li>
+            <li>Generating customized PDF invoices and saving or sharing them at your request.</li>
+            <li>Looking up product names and descriptions online via HTTPS API requests to <code>api.upcitemdb.com</code> using scanned barcode numbers.</li>
+            <li>Scheduling local notifications and due-date payment reminders.</li>
+        </ul>
+
+        <h2>4. Data Storage (Local vs. Server)</h2>
+        <p><strong>100% Local Storage:</strong> All your user account data, client records, items, invoices, and digital signatures are stored locally on your device in a private SQLite database (Room storage) and app-specific directories.</p>
+        <p>We do not operate external cloud databases to sync or store your personal or business invoice records. Your data remains on your physical device unless you explicitly share generated PDF documents externally.</p>
+
+        <h2>5. Third-Party Services</h2>
+        <p>Invoice Generator utilizes a minimal set of third-party SDKs and services to perform specialized tasks:</p>
+        <ul>
+            <li><strong>Google ML Kit Barcode Scanning:</strong> Processes camera frames on your device in real-time to detect product barcodes. ML Kit operates entirely on-device and does not transmit camera video or image streams to external servers.</li>
+            <li><strong>Barcode Lookup Service (<code>api.upcitemdb.com</code>):</strong> When you scan or enter a product barcode, the app sends the numeric barcode (UPC) over an encrypted HTTPS connection to <code>https://api.upcitemdb.com/prod/trial/lookup</code> to fetch product details (such as item name and description). No personally identifiable information (PII), client data, or invoice details are transmitted during this API request.</li>
+        </ul>
+
+        <h2>6. Permissions Explained</h2>
+        <p>Invoice Generator requests the following Android system permissions only when necessary for specific features:</p>
+        <ul class="perm-list">
+            <li><strong>Camera (<code>android.permission.CAMERA</code>):</strong> Required to scan product barcodes using the device camera feed.</li>
+            <li><strong>Internet (<code>android.permission.INTERNET</code>):</strong> Required to query product details from <code>api.upcitemdb.com</code> when a barcode is scanned or entered.</li>
+            <li><strong>Post Notifications (<code>android.permission.POST_NOTIFICATIONS</code>):</strong> Required on Android 13 and above to send local notifications and payment reminders for upcoming invoice due dates.</li>
+        </ul>
+
+        <h2>7. Data Sharing</h2>
+        <p>We do not sell, rent, trade, or share your personal information, client details, or invoice records with any third parties.</p>
+        <p>External network interactions occur strictly in the following scenarios:</p>
+        <ul>
+            <li><strong>Barcode Lookup:</strong> When using the barcode scanner, the numeric product UPC code is transmitted to <code>api.upcitemdb.com</code> via secure HTTPS to retrieve product descriptions. No user identity or financial data is included.</li>
+            <li><strong>User-Initiated PDF Sharing:</strong> Invoice PDF files are exported or transmitted externally only when <strong>you voluntarily choose to share them</strong> using Android's system share menu (e.g., via Email, WhatsApp, or cloud storage apps).</li>
+        </ul>
+
+        <h2>8. Data Retention & Deletion</h2>
+        <p>Because all data is stored locally on your device, you maintain full control over your information:</p>
+        <ul>
+            <li>You can edit or delete individual clients, items, invoices, and signatures within the application at any time.</li>
+            <li>Uninstalling the app or clearing the app data via Android Settings will permanently erase all local databases, saved signatures, and app files from your device.</li>
+        </ul>
+
+        <h2>9. Children's Privacy</h2>
+        <p>Invoice Generator is a business utility app designed for professional and commercial invoicing. It is not directed to children under 13 years of age, and we do not knowingly collect personal information from children.</p>
+
+        <h2>10. Security</h2>
+        <p>We take data security seriously. User account passwords stored locally are protected using standard cryptographic password hashing algorithms. All network communications with <code>api.upcitemdb.com</code> use secure HTTPS encryption. Additionally, your data is protected by the standard security sandbox provided by the Android operating system.</p>
+
+        <h2>11. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Any updates will be reflected by updating the "Last Updated" date at the top of this policy page. We encourage you to review this Privacy Policy periodically.</p>
+
+        <h2>12. Contact Us</h2>
+        <p>If you have any questions, concerns, or feedback regarding this Privacy Policy, please contact us at:</p>
+        <div class="contact-box">
+            Email: <a href="mailto:aqsadev819@gmail.com">aqsadev819@gmail.com</a>
+        </div>
+    </div>
+</body>
+</html>
